@@ -1,5 +1,5 @@
 queue()
-    .defer(d3.json, "/donorschoose/projects")
+    .defer(d3.csv, "http://ElsieHsieh.github.io/map/opendata_projects.csv")
     .defer(d3.json, "http://ElsieHsieh.github.io/map/templates/static/geojson/us-states.json")
     .await(makeGraphs);
 
