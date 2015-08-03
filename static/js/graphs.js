@@ -13,7 +13,9 @@ function makeGraphs(error, data, statesJson) {
 
 	data.forEach(function(d) {
 		d["date_posted"] = dateFormat.parse(d["date_posted"]);
-		//d["date_posted"].setDate(1);
+		d["date_posted"].setDate(1);
+		//We change the date type from string to datetime objects,
+		//and we set all projects date days to 1. All projects from the same month will have the same datetime value.
 		d["total_donations"] = +d["total_donations"];
 	});
 
