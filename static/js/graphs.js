@@ -23,7 +23,7 @@ function makeGraphs(error, data, statesJson) {
 	var ndx = crossfilter(data);
 
 	//Define Dimensions
-	var dateDim = ndx.dimension(function(d) { return d3.time.day(d["date_posted"]); }); //return d["date_posted"];
+	var dateDim = ndx.dimension(function(d) { return d["date_posted"]; });
 	var resourceTypeDim = ndx.dimension(function(d) { return d["resource_type"]; });
 	var povertyLevelDim = ndx.dimension(function(d) { return d["poverty_level"]; });
 	var stateDim = ndx.dimension(function(d) { return d["school_state"]; });
