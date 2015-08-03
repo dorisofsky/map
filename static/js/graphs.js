@@ -13,7 +13,7 @@ function makeGraphs(error, data, statesJson) {
 
 	data.forEach(function(d) {
 		d["date_posted"] = dateFormat.parse(d["date_posted"]);
-		d["date_posted"].setDate(1);
+		//d["date_posted"].setDate(1);
 		//We change the date type from string to datetime objects,
 		//and we set all projects date days to 1. All projects from the same month will have the same datetime value.
 		d["total_donations"] = +d["total_donations"];
@@ -23,7 +23,7 @@ function makeGraphs(error, data, statesJson) {
 	var ndx = crossfilter(data);
 
 	//Define Dimensions
-	var dateDim = ndx.dimension(function(d) { return d["date_posted"]; });
+	var dateDim = ndx.dimension(function(d) { return d3.time.day(d["date_posted"]); }); //return d["date_posted"];
 	var resourceTypeDim = ndx.dimension(function(d) { return d["resource_type"]; });
 	var povertyLevelDim = ndx.dimension(function(d) { return d["poverty_level"]; });
 	var stateDim = ndx.dimension(function(d) { return d["school_state"]; });
