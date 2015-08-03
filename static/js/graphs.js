@@ -13,7 +13,7 @@ function makeGraphs(error, data, statesJson) {
 
 	data.forEach(function(d) {
 		d["date_posted"] = dateFormat.parse(d["date_posted"]);
-		d["date_posted"].setDate(1);
+		//d["date_posted"].setDate(1);
 		d["total_donations"] = +d["total_donations"];
 	});
 
